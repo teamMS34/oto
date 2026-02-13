@@ -12,11 +12,29 @@ body{
     justify-content:space-between;
     align-items:center;
 }
-
+.navbar .navbar-item {
+    border: 1px solid grey;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 20px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1 !important;
+}
+.navbar .navbar-item:hover {
+    transform: translateY(-5px);
+}
 .logo{
     font-weight:800;
-    font-size:20px;
+    font-size:22px;
     color:#162b52;
+}
+
+.logo a {
+    font-weight:800 !important;
+    font-size:22px;
 }
 
 .navbar a{

@@ -10,6 +10,22 @@ body{
     color:white;
 }
 
+.nav-links a {
+    border: 1px solid grey;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 20px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1 !important;
+}
+
+.nav-links a:hover {
+    transform: translateY(-5px);
+}
+
 /* NAVBAR */
 .navbar{
     display:flex;
@@ -21,6 +37,13 @@ body{
 .logo{
     font-weight:800;
     font-size:22px;
+}
+
+.logo a {
+    font-weight:800 !important;
+    font-size:22px;
+    text-decoration: none;
+    color:white;
 }
 
 .nav-links a{
