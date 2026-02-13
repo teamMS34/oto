@@ -162,6 +162,18 @@ function hesapla(){
             animation:{duration:1200,easing:'easeOutQuart'},
             plugins:{
                 legend:{ display:false },
+                title:{
+                    display:true,
+                    text:"Araç Yıllık Maliyet Dağılımı",
+                    font:{
+                        size:18,
+                        weight:'700'
+                    },      
+                    padding:{
+                        top:10,
+                        bottom:20
+                    }   
+                },  
                 tooltip:{
                     backgroundColor:"#162b52",
                     titleFont:{weight:'700'},
@@ -174,6 +186,7 @@ function hesapla(){
                     }
                 }
             },
+
             scales:{
                 x:{
                     grid:{ display:false },
