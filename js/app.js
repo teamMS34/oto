@@ -140,42 +140,60 @@ function hesapla(){
     let ctx = document.getElementById('costChart').getContext('2d');
     if(chart) chart.destroy();
 
-    const toplam = yakit + bakim + sigorta + diger;
-
-const ctx = document.getElementById('maliyetGrafik');
-
-new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Yakıt', 'Bakım', 'Sigorta', 'Diğer'],
-        datasets: [{
-            data: [yakit, bakim, sigorta, diger],
-            backgroundColor: [
-                '#ef4444',
-                '#3b82f6',
-                '#facc15',
-                '#10b981'
-            ],
-            hoverOffset: 15,
-            borderWidth: 0
-        }]
-    },
-    options: {
-        responsive: true,
-        cutout: '70%',
-        plugins: {
-            legend: {
-                position: 'bottom'
+  chart = new Chart(ctx, {
+        type:'bar',
+        data:{
+            labels:['Yakıt','Sigorta','Kasko','MTV','Bakım'],
+            datasets:[{
+                label:"Yıllık Gider Dağılımı (TL)",
+                data:[yillikYakit,sigorta,kasko,mtv,bakim],
+                borderRadius:8
+            }]
+        },
+        options:{
+            responsive:true,
+            animation:{duration:1000},
+            plugins:{
+                legend:{
+                    display:true,
+                    labels:{
+                        font:{
+                            size:14,
+                            weight:'600'
+                        }         
+                    }      
+                },    
+                title:{
+                    display:true,
+                    text:"Araç Yıllık Maliyet Dağılımı",
+                    font:{
+                        size:18,
+                        weight:'700'
+                    },      
+                    padding:{
+                        top:10,
+                        bottom:20
+                    }   
+                },                
+                tooltip:{
+                    callbacks:{
+                        label:function(context){
+                            return context.label + ": " +
+                            formatTR(context.raw) + " TL";
+                        }
+                    }
+                }
             },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        let value = context.raw;
-                        let percentage = ((value / toplam) * 100).toFixed(1);
-                        return context.label + ': ₺' + value + ' (%' + percentage + ')';
+            scales:{
+                y:{
+                    beginAtZero:true,
+                    ticks:{
+                        callback:function(value){
+                            return formatTR(value) + " TL";
+                        }
                     }
                 }
             }
         }
-    }
-});
+    });
+}
