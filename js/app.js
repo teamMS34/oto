@@ -140,53 +140,48 @@ function hesapla(){
     let ctx = document.getElementById('costChart').getContext('2d');
     if(chart) chart.destroy();
 
-  chart = new Chart(ctx, {
+    // Gradient oluştur
+    let gradient = ctx.createLinearGradient(0,0,0,400);
+    gradient.addColorStop(0,"#1f4fa3");
+    gradient.addColorStop(1,"#4facfe");
+
+    chart = new Chart(ctx, {
         type:'bar',
         data:{
             labels:['Yakıt','Sigorta','Kasko','MTV','Bakım'],
             datasets:[{
-                label:"Yıllık Gider Dağılımı (TL)",
                 data:[yillikYakit,sigorta,kasko,mtv,bakim],
-                borderRadius:8
+                backgroundColor: gradient,
+                borderRadius:14,
+                borderSkipped:false,
+                barThickness:40
             }]
         },
         options:{
             responsive:true,
-            animation:{duration:1000},
+            animation:{duration:1200,easing:'easeOutQuart'},
             plugins:{
-                legend:{
-                    display:true,
-                    labels:{
-                        font:{
-                            size:14,
-                            weight:'600'
-                        }         
-                    }      
-                },    
-                title:{
-                    display:true,
-                    text:"Araç Yıllık Maliyet Dağılımı",
-                    font:{
-                        size:18,
-                        weight:'700'
-                    },      
-                    padding:{
-                        top:10,
-                        bottom:20
-                    }   
-                },                
+                legend:{ display:false },
                 tooltip:{
+                    backgroundColor:"#162b52",
+                    titleFont:{weight:'700'},
+                    bodyFont:{weight:'600'},
+                    padding:12,
                     callbacks:{
                         label:function(context){
-                            return context.label + ": " +
-                            formatTR(context.raw) + " TL";
+                            return formatTR(context.raw) + " TL";
                         }
                     }
                 }
             },
             scales:{
+                x:{
+                    grid:{ display:false },
+                    ticks:{ font:{weight:'600'} }
+                },
                 y:{
                     beginAtZero:true,
+                    grid:{ color:"rgba(0,0,0,0.05)" },
                     ticks:{
                         callback:function(value){
                             return formatTR(value) + " TL";
