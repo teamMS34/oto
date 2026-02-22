@@ -61,9 +61,21 @@ body{
     box-shadow:0 25px 60px rgba(0,0,0,0.15);
 }
 
+/* 🔥 CAM EFEKT */
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.2);
+    padding:35px;
+    border-radius:22px;
+    flex:1;
+    box-shadow:0 25px 60px rgba(0,0,0,0.25);
+}
+
 .card h2{
     margin-bottom:25px;
-    color:#162b52;
+    color:white;
 }
 
 .input-group{
@@ -75,6 +87,7 @@ body{
     margin-bottom:6px;
     font-size:14px;
     font-weight:600;
+    color:white;
 }
 
 .hint-text{
@@ -88,8 +101,9 @@ body{
     width:100%;
     padding:13px;
     border-radius:12px;
-    border:1px solid #e3e6ee;
-    background:#f9fbff;
+    border:1px solid rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.2);
+    color:white;
     font-size:15px;
 }
 
@@ -124,17 +138,18 @@ button{
 }
 
 .small-result{
-    background:#f4f7fb;
+    background:rgba(255,255,255,0.2);
     padding:12px;
     border-radius:12px;
     margin-bottom:10px;
     font-weight:600;
+    color:white;
 }
 
 .progress-bar{
     width:100%;
     height:26px;
-    background:#e8ecf4;
+    background:rgba(255,255,255,0.2);
     border-radius:20px;
     overflow:hidden;
     margin-top:15px;
@@ -155,6 +170,7 @@ button{
 .risk-text{
     margin-top:10px;
     font-weight:700;
+    color:white;
 }
 
 .recommendation{
